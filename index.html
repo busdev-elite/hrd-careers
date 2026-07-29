@@ -444,21 +444,10 @@
 
                     <!-- ID CARD ADDRESS -->
                     <div class="form-group">
-                        <label for="domicile">ID CARD ADDRESS (including POSTAL CODE) <span class="required">*</span></label>
-                        <input type="text" id="address" name="ID_CARD_ADDRESS" placeholder="Contoh: West Java / Bali" required>
+                        <label for="address">ID CARD ADDRESS (including POSTAL CODE) <span class="required">*</span></label>
+                        <input type="text" id="address" name="ID_Card_Address" required placeholder="Jl. Sudirman No. 12, Jakarta Selatan 12190">
                     </div>
 
-                    <!-- KENDARAAN -->
-                    <div class="form-group">
-                        <label for="vehicle">How Do You Get To Work? <span class="required">*</span></label>
-                        <select id="vehicle" name="Vehicle_Select" required>
-                            <option value="" disabled selected>-- Choose Vehicle --</option>
-                            <option value="Motorcycle">Motorcycle</option>
-                            <option value="Car">Car</option>
-                            <option value="Public Transport">Public Transport</option>
-                            <option value="other">other</option>
-                    </div>
-                    
                     <!-- EDUCATION -->
                     <div class="form-group">
                         <label for="education">Last Education <span class="required">*</span></label>
@@ -468,6 +457,18 @@
                             <option value="Vocational High School Graduate">Vocational High School Graduate</option>
                             <option value="Bachelor Degree">Bachelor Degree</option>
                             <option value="Master Degree">Master Degree</option>
+                        </select> <!-- MUST BE CLOSED HERE -->
+                    </div>
+
+                    <!-- HOW DO YOU GET TO WORK? -->
+                    <div class="form-group">
+                        <label for="vehicle">How Do You Get To Work? <span class="required">*</span></label>
+                        <select id="vehicle" name="Transportation" required>
+                            <option value="" disabled selected>-- Choose Vehicle --</option>
+                            <option value="Motorcycle">Motorcycle</option>
+                            <option value="Car">Car</option>
+                            <option value="Public Transport">Public Transport</option>
+                            <option value="Walk">Walk</option>
                         </select>
                     </div>
 
