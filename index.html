@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Karir & Peluang Kerja | Portal Rekrutmen HRD</title>
+    <title>Karir & Recruitment | HRD Portal</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Futura', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
             background-color: #f8fafc;
@@ -28,7 +28,7 @@
             font-weight: 700;
         }
         header p {
-            color: #94a3b8;
+            color: #420303;
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
@@ -42,20 +42,20 @@
             background: #ffffff;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
             margin-bottom: 2rem;
             border: 1px solid #e2e8f0;
         }
         h2 {
-            color: #0f172a;
+            color: #000000;
             margin-bottom: 1.2rem;
-            border-bottom: 2px solid #f1f5f9;
+            border-bottom: 2px solid #420303;
             padding-bottom: 0.6rem;
             font-size: 1.5rem;
         }
         /* About Section */
         .about-text {
-            color: #475569;
+            color: #ffffff;
             margin-bottom: 1.5rem;
         }
         .about-grid {
@@ -64,30 +64,33 @@
             gap: 1rem;
         }
         .about-card {
-            background: #f8fafc;
+            background: #420303;
             padding: 1.2rem;
             border-radius: 8px;
             border-left: 4px solid #0284c7;
         }
         .about-card h3 {
-            color: #0f172a;
+            color: #420303;
             font-size: 1.1rem;
             margin-bottom: 0.3rem;
         }
         .about-card p {
             font-size: 0.9rem;
-            color: #64748b;
+            color: #000000;
         }
-        /* Job List Section */
+        /* Job List Cards */
         .job-card {
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            padding: 1.25rem;
-            margin-bottom: 1rem;
-            transition: border-color 0.2s;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .job-card:hover {
-            border-color: #38bdf8;
+        .job-header {
+            margin-bottom: 1rem;
         }
         .job-badge {
             display: inline-block;
@@ -101,25 +104,74 @@
             text-transform: uppercase;
         }
         .job-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: #0f172a;
-            font-weight: 600;
+            font-weight: 700;
         }
         .job-desc {
-            color: #64748b;
+            color: #475569;
             font-size: 0.95rem;
-            margin-top: 0.4rem;
+            margin-bottom: 1rem;
         }
-        /* Form Section */
+        .btn-select {
+            align-self: flex-start;
+            background-color: #0284c7;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-select:hover {
+            background-color: #0369a1;
+        }
+        /* Dynamic Job detail & Form Area */
+        #application-area {
+            display: none; /* Disembunyikan dulu sampai tombol diklik */
+            scroll-margin-top: 20px;
+        }
+        .selected-job-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+        .selected-job-box h3 {
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        .job-detail-list {
+            margin-left: 1.2rem;
+            color: #334155;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+        /* Form Styling */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        @media (max-width: 640px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
         .form-group {
             margin-bottom: 1.25rem;
+        }
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
         label {
             display: block;
             margin-bottom: 0.4rem;
             font-weight: 600;
             color: #1e293b;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         label .required {
             color: #ef4444;
@@ -148,11 +200,26 @@
             color: #64748b;
             margin-top: 0.3rem;
         }
-        button {
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.4rem;
+        }
+        .radio-label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            cursor: pointer;
+        }
+        .radio-label input {
+            width: auto;
+        }
+        button[type="submit"] {
             background-color: #0284c7;
             color: #ffffff;
             border: none;
-            padding: 0.85rem 1.5rem;
+            padding: 0.9rem 1.5rem;
             font-size: 1rem;
             font-weight: 600;
             border-radius: 6px;
@@ -160,7 +227,7 @@
             width: 100%;
             transition: background-color 0.2s;
         }
-        button:hover {
+        button[type="submit"]:hover {
             background-color: #0369a1;
         }
         footer {
@@ -173,128 +240,197 @@
 </head>
 <body>
 
-    <!-- HEADER / HERO -->
     <header>
-        <h1>Bergabung Bersama Kami</h1>
-        <p>Mari berkembang dan ciptakan karya terbaik bersama tim kami.</p>
+        <h1>Join with us!</h1>
+        <p>Select the position that suits your skills and complete the application form below.</p>
     </header>
 
     <div class="container">
 
         <!-- 1. TENTANG PERUSAHAAN -->
         <section id="about">
-            <h2>Tentang Perusahaan</h2>
+            <h2>About the Company</h2>
             <p class="about-text">
-                Kami adalah perusahaan yang bergerak di bidang retail dan brand lifestyle yang terus berkembang. Kami percaya bahwa pertumbuhan bisnis berasal dari tim yang dinamis, kreatif, dan saling mendukung.
-            </p>
+                We are an international branded fashion watch retail company spread across 14 cities in Indonesia.</p>
             <div class="about-grid">
                 <div class="about-card">
-                    <h3>Budaya Kerja Inovatif</h3>
-                    <p>Mendukung ide kreatif dan eksplorasi solusi terbaik.</p>
+                    <h3>Innovative Work Culture</h3>
+                    <p>Support creative ideas and exploration of the best solutions.</p>
                 </div>
                 <div class="about-card">
-                    <h3>Pengembangan Karier</h3>
-                    <p>Peluang pertumbuhan profesional yang jelas.</p>
-                </div>
-                <div class="about-card">
-                    <h3>Lingkungan Kolaboratif</h3>
-                    <p>Tim yang solid, inklusif, dan saling mendukung.</p>
+                    <h3>Collaborative Environment</h3>
+                    <p>A solid, inclusive and supportive team.</p>
                 </div>
             </div>
         </section>
 
-        <!-- 2. DAFTAR LOWONGAN -->
+        <!-- 2. DAFTAR LOWONGAN KERJA -->
         <section id="jobs">
-            <h2>Lowongan Kerja Tersedia</h2>
+            <h2>Job Vacancies Available</h2>
             
+            <!-- Job 1 -->
             <div class="job-card">
-                <span class="job-badge">Full-time</span>
-                <div class="job-title">E-Commerce Specialist / Digital Marketer</div>
-                <p class="job-desc">Mengelola strategi pemasaran digital, mengoptimalkan kampanye ads, dan meningkatkan performa penjualan online.</p>
+                <div class="job-header">
+                    <span class="job-badge">Full-time</span>
+                    <div class="job-title">MARKETING ADS SPECIALIST</div>
+                    <p class="job-desc">Build campaign ideas for brand or product from concepting, budget allocation, until execution. Manage, maintain, and analyze all running ads across platform.
+                    Provide ads results report weekly or monthly. Actively involved in brainstorming campaign ideas based on data.
+                    </p>
+                </div>
+                <button class="btn-select" onclick="selectJob('E-Commerce Specialist / Digital Marketer', 'ecommerce-details')">Pilih & Lamar Posisi Ini &darr;</button>
             </div>
 
+            <!-- Job 2 -->
             <div class="job-card">
-                <span class="job-badge">Full-time</span>
-                <div class="job-title">Content Creator & Photographer</div>
-                <p class="job-desc">Memproduksi konten visual berstandar tinggi, foto produk cinematik, serta mengelola ide kreatif media sosial.</p>
+                <div class="job-header">
+                    <span class="job-badge">Full-time</span>
+                    <div class="job-title">Content Creator & Photographer</div>
+                    <p class="job-desc">Memproduksi konten visual produk berstandar tinggi, videografi cinematik, serta mengelola ide konten media sosial perusahaan.</p>
+                </div>
+                <button class="btn-select" onclick="selectJob('Content Creator & Photographer', 'content-details')">Pilih & Lamar Posisi Ini &darr;</button>
             </div>
 
+            <!-- Job 3 -->
             <div class="job-card">
-                <span class="job-badge">Full-time</span>
-                <div class="job-title">HR & General Affair Staff</div>
-                <p class="job-desc">Mengelola proses rekrutmen, hubungan antar karyawan, serta mendukung operasional kepegawaian perusahaan.</p>
+                <div class="job-header">
+                    <span class="job-badge">Full-time</span>
+                    <div class="job-title">HR & General Affair Staff</div>
+                    <p class="job-desc">Mengelola proses rekrutmen, administrasi kepegawaian, hubungan antar karyawan, serta operasional harian tim.</p>
+                </div>
+                <button class="btn-select" onclick="selectJob('HR & General Affair Staff', 'hr-details')">Pilih & Lamar Posisi Ini &darr;</button>
             </div>
         </section>
 
-        <!-- 3. FORMULIR LAMARAN KERJA (WEB3FORMS) -->
-        <section id="apply">
-            <h2>Formulir Lamaran Pekerjaan</h2>
-            <p style="margin-bottom: 1.5rem; color: #64748b; font-size: 0.95rem;">
-                Isi data diri Anda dengan lengkap. File pasfoto dapat diunggah langsung di bawah ini.
+        <!-- 3. DETAIL LOWONGAN & FORMULIR (MUNCUL OTOMATIS SAAT TOMBOL DIKLIK) -->
+        <section id="application-area">
+            
+            <!-- Detail Jobdesc yang Terpilih -->
+            <div class="selected-job-box">
+                <p style="font-size: 0.85rem; color: #0284c7; font-weight: bold; text-transform: uppercase;">Posisi Yang Anda Pilih:</p>
+                <h3 id="display-job-title">Nama Posisi</h3>
+                
+                <div id="job-details-content">
+                    <!-- Template detail deskripsi & jobdesc akan masuk ke sini via JS -->
+                </div>
+            </div>
+
+            <h2>Formulir Data Diri Pelamar</h2>
+            <p style="margin-bottom: 1.5rem; color: #64748b; font-size: 0.9rem;">
+                Mohon isi seluruh data diri berikut dengan benar sesuai dokumen resmi Anda.
             </p>
 
             <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
                 
-                <!-- ID ACCESS KEY WEB3FORMS (TEMPEL KODE ANDA DI VALUE) -->
-                <input type="hidden" name="access_key" value="cd9f887c-9126-4869-85fd-9941466076fa">
+                <!-- ID ACCESS KEY WEB3FORMS (TEMPEL ACCESS KEY ANDA DI SINI) -->
+                <input type="hidden" name="access_key" value="PASTE_ACCESS_KEY_WEB3FORMS_ANDA_DI_SINI">
+
+                <!-- POSISI TERPILIH (DIISI OTOMATIS OLEH JAVASCRIPT) -->
+                <input type="hidden" id="input-selected-position" name="Posisi_Yang_Dilamar" value="">
 
                 <!-- SUBJEK EMAIL NOTIFIKASI HRD -->
                 <input type="hidden" name="subject" value="[Lamaran Baru] Pengisian Formulir HRD">
 
-                <!-- SET AGAR FITUR REPLY EMAIL REPLIES LANGSUNG KE EMAIL PELAMAR -->
+                <!-- FITUR REPLY LANGSUNG KE EMAIL PELAMAR -->
                 <input type="hidden" name="replyto" value="email">
 
-                <!-- POSISI -->
-                <div class="form-group">
-                    <label for="position">Posisi yang Dilamar <span class="required">*</span></label>
-                    <select id="position" name="Posisi_Dilamar" required>
-                        <option value="" disabled selected>-- Pilih Posisi --</option>
-                        <option value="E-Commerce Specialist">E-Commerce Specialist / Digital Marketer</option>
-                        <option value="Content Creator & Photographer">Content Creator & Photographer</option>
-                        <option value="HR & General Affair Staff">HR & General Affair Staff</option>
-                        <option value="Lainnya / Open Application">Lainnya / Open Application</option>
-                    </select>
+                <div class="form-grid">
+                    
+                    <!-- NAMA LENGKAP -->
+                    <div class="form-group full-width">
+                        <label for="name">Nama Lengkap <span class="required">*</span></label>
+                        <input type="text" id="name" name="Nama_Lengkap" placeholder="Masukkan nama lengkap Anda" required>
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label for="email">Alamat Email <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                    </div>
+
+                    <!-- NO HP / WHATSAPP -->
+                    <div class="form-group">
+                        <label for="phone">Nomor Telepon / WhatsApp <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="No_WhatsApp" placeholder="081234567890" required>
+                    </div>
+
+                    <!-- TANGGAL LAHIR -->
+                    <div class="form-group">
+                        <label for="dob">Tanggal Lahir <span class="required">*</span></label>
+                        <input type="date" id="dob" name="Tanggal_Lahir" required>
+                    </div>
+
+                    <!-- JENIS KELAMIN -->
+                    <div class="form-group">
+                        <label>Jenis Kelamin <span class="required">*</span></label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="Jenis_Kelamin" value="Laki-laki" required> Laki-laki</label>
+                            <label class="radio-label"><input type="radio" name="Jenis_Kelamin" value="Perempuan" required> Perempuan</label>
+                        </div>
+                    </div>
+
+                    <!-- STATUS PERNIKAHAN -->
+                    <div class="form-group">
+                        <label for="marital">Status Pernikahan <span class="required">*</span></label>
+                        <select id="marital" name="Status_Pernikahan" required>
+                            <option value="" disabled selected>-- Pilih Status --</option>
+                            <option value="Lajang / Belum Menikah">Lajang / Belum Menikah</option>
+                            <option value="Menikah">Menikah</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+
+                    <!-- DOMISILI SAAT INI -->
+                    <div class="form-group">
+                        <label for="domicile">Kota Domisili Saat Ini <span class="required">*</span></label>
+                        <input type="text" id="domicile" name="Domisili" placeholder="Contoh: Jakarta Selatan / Makassar" required>
+                    </div>
+
+                    <!-- LINK DRIVE FOTO & CV -->
+                    <div class="form-group full-width">
+                        <label for="portfolio">Link Drive Foto & CV / Resume / Portfolio <span class="required">*</span></label>
+                        <input type="url" id="portfolio" name="Link_Drive_CV_Portfolio" placeholder="https://drive.google.com/..." required>
+                        <div class="file-hint">Harap sertakan link Google Drive / LinkedIn yang berisi CV dan Foto. Pastikan akses folder/file sudah diatur ke <b>Publik (Anyone with the link)</b>.</div>
+                    </div>
+
+                    <!-- UPLOAD PASFOTO -->
+                    <div class="form-group full-width">
+                        <label for="photo">Upload Pasfoto / Foto Diri Terbaru <span class="required">*</span></label>
+                        <input type="file" id="photo" name="Foto_Pelamar" accept="image/png, image/jpeg, image/jpg" required>
+                        <div class="file-hint">Format yang didukung: JPG, JPEG, PNG (Maksimal 5 MB).</div>
+                    </div>
+
+                    <!-- PENGALAMAN KERJA TERAKHIR -->
+                    <div class="form-group full-width">
+                        <label for="last-job">Pengalaman Kerja Terakhir (Perusahaan & Posisi) <span class="required">*</span></label>
+                        <input type="text" id="last-job" name="Pengalaman_Terakhir" placeholder="Contoh: PT ABC - Content Creator (2022-2024)" required>
+                    </div>
+
+                    <!-- EKSPEKTASI GAJI -->
+                    <div class="form-group">
+                        <label for="salary">Gaji yang Diharapkan (Per Bulan) <span class="required">*</span></label>
+                        <input type="text" id="salary" name="Ekspektasi_Gaji" placeholder="Contoh: Rp 5.000.000" required>
+                    </div>
+
+                    <!-- KAPAN BISA MULAI KERJA -->
+                    <div class="form-group">
+                        <label for="start-date">Kapan Bisa Mulai Bekerja? <span class="required">*</span></label>
+                        <select id="start-date" name="Ketersediaan_Mulai" required>
+                            <option value="" disabled selected>-- Pilih Waktu --</option>
+                            <option value="Secepatnya / Immediately">Secepatnya / Immediately</option>
+                            <option value="1 Minggu Setelah Offer">1 Minggu</option>
+                            <option value="1 Bulan (1 Month Notice)">1 Bulan (1 Month Notice)</option>
+                        </select>
+                    </div>
+
+                    <!-- ALASAN TERTARIK -->
+                    <div class="form-group full-width">
+                        <label for="motivation">Mengapa Anda Tertarik Bergabung di Posisi Ini? <span class="required">*</span></label>
+                        <textarea id="motivation" name="Alasan_Tertarik" rows="3" placeholder="Tuliskan alasan singkat Anda..." required></textarea>
+                    </div>
+
                 </div>
 
-                <!-- NAMA LENGKAP -->
-                <div class="form-group">
-                    <label for="name">Nama Lengkap <span class="required">*</span></label>
-                    <input type="text" id="name" name="Nama_Lengkap" placeholder="Contoh: Budi Santoso" required>
-                </div>
-
-                <!-- EMAIL -->
-                <div class="form-group">
-                    <label for="email">Alamat Email <span class="required">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="nama@email.com" required>
-                </div>
-
-                <!-- NO HP / WHATSAPP -->
-                <div class="form-group">
-                    <label for="phone">Nomor WhatsApp / HP <span class="required">*</span></label>
-                    <input type="tel" id="phone" name="No_WhatsApp" placeholder="081234567890" required>
-                </div>
-
-                <!-- LINK CV / PORTFOLIO -->
-                <div class="form-group">
-                    <label for="portfolio">Link CV / Resume / LinkedIn / Portfolio <span class="required">*</span></label>
-                    <input type="url" id="portfolio" name="Link_CV_Portfolio" placeholder="https://drive.google.com/... atau https://linkedin.com/in/..." required>
-                    <div class="file-hint">Pastikan akses link Google Drive sudah diatur ke Publik (Anyone with the link).</div>
-                </div>
-
-                <!-- UPLOAD FOTO DIRI -->
-                <div class="form-group">
-                    <label for="photo">Upload Pasfoto / Foto Diri Terbaru <span class="required">*</span></label>
-                    <input type="file" id="photo" name="Foto_Pelamar" accept="image/png, image/jpeg, image/jpg" required>
-                    <div class="file-hint">Format yang didukung: JPG, JPEG, PNG (Maksimal 5 MB).</div>
-                </div>
-
-                <!-- PERTANYAAN SINGKAT -->
-                <div class="form-group">
-                    <label for="experience">Pengalaman Singkat & Alasan Melamar</label>
-                    <textarea id="experience" name="Pengalaman_dan_Alasan" rows="4" placeholder="Ceritakan singkat latar belakang pengalaman Anda dan mengapa tertarik bergabung..."></textarea>
-                </div>
-
-                <button type="submit">Kirim Lamaran Sekarang</button>
+                <button type="submit" style="margin-top: 1rem;">Kirim Lamaran Pekerjaan</button>
             </form>
         </section>
 
@@ -304,5 +440,51 @@
         <p>&copy; 2026 Tim HRD. Portal Rekrutmen Resmi.</p>
     </footer>
 
+    <!-- JAVASCRIPT UNTUK INTERAKSI PILIH LOWONGAN -->
+    <script>
+        // Data Jobdesc untuk masing-masing posisi
+        const jobDetails = {
+            'ecommerce-details': `
+                <p><b>Deskripsi Pekerjaan:</b> Mengelola operasional e-commerce, eksekusi kampanye pemasaran digital, dan optimasi iklan.</p>
+                <ul class="job-detail-list">
+                    <li>Mengelola toko online (Shopify / Marketplace).</li>
+                    <li>Merancang & menjalankan kampanye iklan Meta Ads & Google Ads.</li>
+                    <li>Menganalisis conversion rate, Cost Per Result (CPR), dan data penjualan.</li>
+                </ul>
+            `,
+            'content-details': `
+                <p><b>Deskripsi Pekerjaan:</b> Mengembangkan konten visual kreatif berstandar tinggi untuk kebutuhan promosi produk dan brand.</p>
+                <ul class="job-detail-list">
+                    <li>Memproduksi foto produk studio & outdoor dengan pencahayaan sinematik.</li>
+                    <li>Membuat video pendek (Reels / TikTok) dan materi konten promosi.</li>
+                    <li>Bekerja sama dengan tim marketing untuk ide strategi visual.</li>
+                </ul>
+            `,
+            'hr-details': `
+                <p><b>Deskripsi Pekerjaan:</b> Membantu operasional rekrutmen dan mendukung administrasi kepegawaian internal.</p>
+                <ul class="job-detail-list">
+                    <li>Menyaring berkas pelamar dan mengatur jadwal wawancara.</li>
+                    <li>Mengelola administrasi karyawan dan dokumen operasional HR.</li>
+                    <li>Mendukung penciptaan budaya kerja yang positif dan produktif.</li>
+                </ul>
+            `
+        };
+
+        function selectJob(jobTitle, detailKey) {
+            // 1. Tampilkan bagian formulir
+            const appArea = document.getElementById('application-area');
+            appArea.style.display = 'block';
+
+            // 2. Isi nama posisi di judul dan input hidden form
+            document.getElementById('display-job-title').innerText = jobTitle;
+            document.getElementById('input-selected-position').value = jobTitle;
+
+            // 3. Masukkan detail jobdesc yang sesuai
+            document.getElementById('job-details-content').innerHTML = jobDetails[detailKey] || '';
+
+            // 4. Smooth scroll langsung ke bagian formulir
+            appArea.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
