@@ -398,8 +398,8 @@
 
                     <!-- TEMPAT LAHIR -->
                     <div class="form-group">
-                        <label for="dob">Place of birth <span class="required">*</span></label>
-                        <input type="place" id="place" name="Place_Birth" required>
+                        <label for="dob">City of birth <span class="required">*</span></label>
+                        <input type="place" id="place" name="Place_Birth" placeholder="Jakarta / Bandung" required>
                     </div>
 
                     <!-- JENIS KELAMIN -->
@@ -436,16 +436,34 @@
                         </select>
                     </div>
 
+                    <!-- Ethnic -->
+                    <div class="form-group full-width">
+                        <label for="Ethnic">Ethnic <span class="required">*</span></label>
+                        <input type="text" id="Ethnic" name="Ethnic" placeholder="Chinese / Sundanese" required>
+                    </div>
+
                     <!-- DOMISILI SAAT INI -->
                     <div class="form-group">
-                        <label for="domicile">Current City of Residence (including POSTAL CODE) <span class="required">*</span></label>
+                        <label for="domicile">Current City of Residence <span class="required">*</span></label>
                         <input type="text" id="domicile" name="Domicile" placeholder="Contoh: Jakarta Selatan / Makassar" required>
                     </div>
 
                     <!-- ID CARD ADDRESS -->
                     <div class="form-group">
-                        <label for="address">ID CARD ADDRESS (including POSTAL CODE) <span class="required">*</span></label>
-                        <input type="text" id="address" name="ID_Card_Address" required placeholder="Jl. Sudirman No. 12, Jakarta Selatan 12190">
+                        <label for="address">ID CARD ADDRESS <span class="required">*</span></label>
+                        <input type="text" id="address" name="ID_Card_Address" required placeholder="Jl. Sudirman No. 12, Jakarta Selatan">
+                    </div>
+
+                    <!-- HOW DO YOU GET TO WORK? -->
+                    <div class="form-group">
+                        <label for="vehicle">How Do You Get To Work? <span class="required">*</span></label>
+                        <select id="vehicle" name="Transportation" required>
+                            <option value="" disabled selected>-- Choose Vehicle --</option>
+                            <option value="Motorcycle">Motorcycle</option>
+                            <option value="Car">Car</option>
+                            <option value="Public Transport">Public Transport</option>
+                            <option value="Walk">Walk</option>
+                        </select>
                     </div>
 
                     <!-- EDUCATION -->
@@ -460,17 +478,12 @@
                         </select> <!-- MUST BE CLOSED HERE -->
                     </div>
 
-                    <!-- HOW DO YOU GET TO WORK? -->
-                    <div class="form-group">
-                        <label for="vehicle">How Do You Get To Work? <span class="required">*</span></label>
-                        <select id="vehicle" name="Transportation" required>
-                            <option value="" disabled selected>-- Choose Vehicle --</option>
-                            <option value="Motorcycle">Motorcycle</option>
-                            <option value="Car">Car</option>
-                            <option value="Public Transport">Public Transport</option>
-                            <option value="Walk">Walk</option>
-                        </select>
+                    <!-- Major -->
+                    <div class="form-group full-width">
+                        <label for="last-job">Major (filled in by Vocational High School / Bachelor's Degree) <span class="required">*</span></label>
+                        <input type="text" id="major" name="major" placeholder="Contoh: SMK Akutansi / Sarjana Ilmu Komunikasi" required>
                     </div>
+                    
 
                     <!-- PENGALAMAN KERJA TERAKHIR -->
                     <div class="form-group full-width">
