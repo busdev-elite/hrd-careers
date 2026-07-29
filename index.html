@@ -354,6 +354,12 @@
                         <input type="date" id="dob" name="Date_Birth" required>
                     </div>
 
+                    <!-- TEMPAT LAHIR -->
+                    <div class="form-group">
+                        <label for="dob">Place of birth <span class="required">*</span></label>
+                        <input type="place" id="place" name="Place_Birth" required>
+                    </div>
+
                     <!-- JENIS KELAMIN -->
                     <div class="form-group">
                         <label>Gender <span class="required">*</span></label>
@@ -374,24 +380,52 @@
                         </select>
                     </div>
 
+                    <!-- AGAMA -->
+                    <div class="form-group">
+                        <label for="religion">Religion <span class="required">*</span></label>
+                        <select id="religion" name="Religion" required>
+                            <option value="" disabled selected>-- Choose Religion --</option>
+                            <option value="Christian">Christian</option>
+                            <option value="Catholic">Catholic</option>
+                            <option value="Buddhism">Buddhism</option>
+                            <option value="Islam">Islam</option>
+                            <option value="Hindu">Hindu</option>
+                            <option value="other">other</option>
+                        </select>
+                    </div>
+
                     <!-- DOMISILI SAAT INI -->
                     <div class="form-group">
-                        <label for="domicile">Current City of Residence <span class="required">*</span></label>
+                        <label for="domicile">Current City of Residence (including POSTAL CODE) <span class="required">*</span></label>
                         <input type="text" id="domicile" name="Domicile" placeholder="Contoh: Jakarta Selatan / Makassar" required>
                     </div>
 
-                    <!-- LINK DRIVE FOTO & CV -->
-                    <div class="form-group full-width">
-                        <label for="portfolio">Link Drive CV / Resume / Portfolio <span class="required">*</span></label>
-                        <input type="url" id="portfolio" name="Link_Drive_CV_Portfolio" placeholder="https://drive.google.com/..." required>
-                        <div class="file-hint">Please include a Google Drive/LinkedIn link containing your CV and photos. Ensure folder/file access is set to <b>Public (Anyone with the link)</b>.</div>
+                    <!-- ID CARD ADDRESS -->
+                    <div class="form-group">
+                        <label for="domicile">ID CARD ADDRESS (including POSTAL CODE) <span class="required">*</span></label>
+                        <input type="text" id="address" name="ID_CARD_ADDRESS" placeholder="Contoh: wEST Java / Bali" required>
                     </div>
 
-                    <!-- UPLOAD PASFOTO -->
-                    <div class="form-group full-width">
-                        <label for="photo">Upload your latest photo/selfie <span class="required">*</span></label>
-                        <input type="file" id="photo" name="Applicant_Photo" accept="image/png, image/jpeg, image/jpg" required>
-                        <div class="file-hint">Supported formats: JPG, JPEG, PNG (Maximum 5 MB).</div>
+                     <!-- KENDARAAN -->
+                    <div class="form-group">
+                        <label for="vehicle">How Do You Get To Work? <span class="required">*</span></label>
+                        <select id="vehicle" name="Vehicle_Select" required>
+                            <option value="" disabled selected>-- Choose Vehicle --</option>
+                            <option value="Motorcycle">Motorcycle</option>
+                            <option value="Car">Car</option>
+                            <option value="Public Transport">Public Transport</option>
+                            <option value="other">other</option>
+                    </div>
+                    
+                     <!-- EDUCATION -->
+                    <div class="form-group">
+                        <label for="education">Last Education <span class="required">*</span></label>
+                        <select id="education" name="Last_Education" required>
+                            <option value="" disabled selected>-- Last Education --</option>
+                            <option value="High School Graduate">High School Graduate</option>
+                            <option value="Vocational High School Graduate">Vocational High School Graduate</option>
+                            <option value="Bachelor Degree">Bachelor Degree</option>
+                            <option value="Master Degree">Master Degree</option>
                     </div>
 
                     <!-- PENGALAMAN KERJA TERAKHIR -->
@@ -422,6 +456,20 @@
                         <label for="motivation">Why Are You Interested in Joining This Position? <span class="required">*</span></label>
                         <textarea id="motivation" name="Reasons_Interest" rows="3" placeholder="Write your short reasons..." required></textarea>
                     </div>
+                            
+                    <!-- LINK DRIVE FOTO & CV -->
+                    <div class="form-group full-width">
+                        <label for="portfolio">Link Drive CV / Resume / Portfolio <span class="required">*</span></label>
+                        <input type="url" id="portfolio" name="Link_Drive_CV_Portfolio" placeholder="https://drive.google.com/..." required>
+                        <div class="file-hint">Please include a Google Drive/LinkedIn link containing your CV and photos. Ensure folder/file access is set to <b>Public (Anyone with the link)</b>.</div>
+                    </div>
+
+                    <!-- UPLOAD PASFOTO -->
+                    <div class="form-group full-width">
+                        <label for="photo">Upload your latest photo/selfie <span class="required">*</span></label>
+                        <input type="file" id="photo" name="Applicant_Photo" accept="image/png, image/jpeg, image/jpg" required>
+                        <div class="file-hint">Supported formats: JPG, JPEG, PNG (Maximum 5 MB).</div>
+                    </div>
 
                 </div>
 
@@ -442,23 +490,30 @@
         'marketing-ads': {
             title: 'MARKETING ADS SPECIALIST',
             details: `
-                <p><b>Key Responsibilities:</b></p>
-                <ul class="job-detail-list">
-                    <li>Build campaign ideas for brand or product from concepting, budget allocation, until execution.</li>
-                    <li>Manage, maintain, and analyze all running ads across platforms.</li>
-                    <li>Provide ads results reports weekly and monthly.</li>
-                    <li>Actively involve in brainstorming campaign ideas based on data.</li>
+                <p><b>Qualification:</b></p>
+                <ul class="qualification">
+                    <li>Can join ASAP.</li>
+                    <li>Bachelor of Communication Science or marketing or related field.</li>
+                    <li>Able to work in fast pace environment with deadline and target.</li>
+                    <li>Have proven work experience in digital advertising platforms such as Meta Business, Google Ads, Tiktok Ads, and marketplace ads for at least 2 years.</li>
+                    <li>Accustomed to Adobe Family (Photoshop, Premier, Illustrator) or at least Canva and Capcut.</li>
+                    <li>Have proactive, initiative, and creative personality.(</li>
+
                 </ul>
             `
         },
-        'admin-akunting': {
+        'admin-accounting': {
             title: 'ADMIN ACCOUNTING',
             details: `
-                <p><b>Key Responsibilities:</b></p>
-                <ul class="job-detail-list">
-                    <li>Check daily sales across all retail branches.</li>
-                    <li>Export and import data from POS to Accurate accounting software.</li>
-                    <li>Enter and verify payment data into Accurate.</li>
+                <p><b>Qualification:</b></p>
+                <ul class="Qualification">
+                    <li>Accounting background preferred.</li>
+                    <li>Fluent in Excel and Word.</li>
+                    <li>Familiar with Accurate Accounting System.</li>
+                    <li>Male preferred.</li>
+                    <li>Must have a private vehicle.</li>
+                    <li>Highly accurate and proactive in communication.</li>
+                    <li>Able to join immediately.</li>
                 </ul>
             `
         }
