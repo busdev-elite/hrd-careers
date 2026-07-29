@@ -277,27 +277,17 @@
                     Provide ads results report weekly or monthly. Actively involved in brainstorming campaign ideas based on data.
                     </p>
                 </div>
-                <button class="btn-select" onclick="selectJob('E-Commerce Specialist / Digital Marketer', 'ecommerce-details')">Pilih & Lamar Posisi Ini &darr;</button>
+                <button class="btn-select" onclick="selectJob('marketing-ads')">Select & Apply for This Position &darr;</button>
             </div>
 
             <!-- Job 2 -->
             <div class="job-card">
                 <div class="job-header">
                     <span class="job-badge">Full-time</span>
-                    <div class="job-title">Content Creator & Photographer</div>
-                    <p class="job-desc">Memproduksi konten visual produk berstandar tinggi, videografi cinematik, serta mengelola ide konten media sosial perusahaan.</p>
+                    <div class="job-title">ADMIN ACCOUNTING</div>
+                    <p class="job-desc">Checking sales across all retail branches.Exporting and importing data from POS to Accurate.Entering payment data into Accurate.</p>
                 </div>
-                <button class="btn-select" onclick="selectJob('Content Creator & Photographer', 'content-details')">Pilih & Lamar Posisi Ini &darr;</button>
-            </div>
-
-            <!-- Job 3 -->
-            <div class="job-card">
-                <div class="job-header">
-                    <span class="job-badge">Full-time</span>
-                    <div class="job-title">HR & General Affair Staff</div>
-                    <p class="job-desc">Mengelola proses rekrutmen, administrasi kepegawaian, hubungan antar karyawan, serta operasional harian tim.</p>
-                </div>
-                <button class="btn-select" onclick="selectJob('HR & General Affair Staff', 'hr-details')">Pilih & Lamar Posisi Ini &darr;</button>
+                <button class="btn-select" onclick="selectJob('admin-accounting')">Select & Apply for This Position &darr;</button>
             </div>
         </section>
 
@@ -306,29 +296,29 @@
             
             <!-- Detail Jobdesc yang Terpilih -->
             <div class="selected-job-box">
-                <p style="font-size: 0.85rem; color: #0284c7; font-weight: bold; text-transform: uppercase;">Posisi Yang Anda Pilih:</p>
-                <h3 id="display-job-title">Nama Posisi</h3>
+                <p style="font-size: 0.85rem; color: #0284c7; font-weight: bold; text-transform: uppercase;">The Position You Choose:</p>
+                <h3 id="display-job-title">Position Name</h3>
                 
                 <div id="job-details-content">
                     <!-- Template detail deskripsi & jobdesc akan masuk ke sini via JS -->
                 </div>
             </div>
 
-            <h2>Formulir Data Diri Pelamar</h2>
-            <p style="margin-bottom: 1.5rem; color: #64748b; font-size: 0.9rem;">
-                Mohon isi seluruh data diri berikut dengan benar sesuai dokumen resmi Anda.
+            <h2>Applicant Personal Data Form</h2>
+            <p style="margin-bottom: 1.5rem; color: #420303; font-size: 0.9rem;">
+                Please fill in all the following personal data correctly according to your official documents.
             </p>
 
             <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
                 
                 <!-- ID ACCESS KEY WEB3FORMS (TEMPEL ACCESS KEY ANDA DI SINI) -->
-                <input type="hidden" name="access_key" value="PASTE_ACCESS_KEY_WEB3FORMS_ANDA_DI_SINI">
+                <input type="hidden" name="access_key" value="cd9f887c-9126-4869-85fd-9941466076fa">
 
                 <!-- POSISI TERPILIH (DIISI OTOMATIS OLEH JAVASCRIPT) -->
-                <input type="hidden" id="input-selected-position" name="Posisi_Yang_Dilamar" value="">
+                <input type="hidden" id="input-selected-position" name="Position_Applied_For" value="">
 
                 <!-- SUBJEK EMAIL NOTIFIKASI HRD -->
-                <input type="hidden" name="subject" value="[Lamaran Baru] Pengisian Formulir HRD">
+                <input type="hidden" name="subject" value="[New Application] HRD Form Filling">
 
                 <!-- FITUR REPLY LANGSUNG KE EMAIL PELAMAR -->
                 <input type="hidden" name="replyto" value="email">
@@ -337,154 +327,158 @@
                     
                     <!-- NAMA LENGKAP -->
                     <div class="form-group full-width">
-                        <label for="name">Nama Lengkap <span class="required">*</span></label>
-                        <input type="text" id="name" name="Nama_Lengkap" placeholder="Masukkan nama lengkap Anda" required>
+                        <label for="name">Full Name <span class="required">*</span></label>
+                        <input type="text" id="name" name="Nama_Lengkap" placeholder="Enter your full name" required>
                     </div>
 
                     <!-- EMAIL -->
                     <div class="form-group">
-                        <label for="email">Alamat Email <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="name@email.com" required>
                     </div>
 
                     <!-- NO HP / WHATSAPP -->
                     <div class="form-group">
-                        <label for="phone">Nomor Telepon / WhatsApp <span class="required">*</span></label>
+                        <label for="phone">Phone Number / WhatsApp <span class="required">*</span></label>
                         <input type="tel" id="phone" name="No_WhatsApp" placeholder="081234567890" required>
                     </div>
 
                     <!-- TANGGAL LAHIR -->
                     <div class="form-group">
-                        <label for="dob">Tanggal Lahir <span class="required">*</span></label>
-                        <input type="date" id="dob" name="Tanggal_Lahir" required>
+                        <label for="dob">Date Birth <span class="required">*</span></label>
+                        <input type="date" id="dob" name="Date_Birth" required>
                     </div>
 
                     <!-- JENIS KELAMIN -->
                     <div class="form-group">
-                        <label>Jenis Kelamin <span class="required">*</span></label>
+                        <label>Gender <span class="required">*</span></label>
                         <div class="radio-group">
-                            <label class="radio-label"><input type="radio" name="Jenis_Kelamin" value="Laki-laki" required> Laki-laki</label>
-                            <label class="radio-label"><input type="radio" name="Jenis_Kelamin" value="Perempuan" required> Perempuan</label>
+                            <label class="radio-label"><input type="radio" name="Gender" value="Male" required> Laki-laki</label>
+                            <label class="radio-label"><input type="radio" name="Gender" value="Female" required> Perempuan</label>
                         </div>
                     </div>
 
                     <!-- STATUS PERNIKAHAN -->
                     <div class="form-group">
-                        <label for="marital">Status Pernikahan <span class="required">*</span></label>
-                        <select id="marital" name="Status_Pernikahan" required>
-                            <option value="" disabled selected>-- Pilih Status --</option>
-                            <option value="Lajang / Belum Menikah">Lajang / Belum Menikah</option>
-                            <option value="Menikah">Menikah</option>
-                            <option value="Lainnya">Lainnya</option>
+                        <label for="marital">Marital status <span class="required">*</span></label>
+                        <select id="marital" name="Marital_Status" required>
+                            <option value="" disabled selected>-- Choose Status --</option>
+                            <option value="Lajang / Belum Menikah">Single / Not married yet</option>
+                            <option value="Menikah">Married</option>
+                            <option value="Lainnya">Other</option>
                         </select>
                     </div>
 
                     <!-- DOMISILI SAAT INI -->
                     <div class="form-group">
-                        <label for="domicile">Kota Domisili Saat Ini <span class="required">*</span></label>
-                        <input type="text" id="domicile" name="Domisili" placeholder="Contoh: Jakarta Selatan / Makassar" required>
+                        <label for="domicile">Current City of Residence <span class="required">*</span></label>
+                        <input type="text" id="domicile" name="Domicile" placeholder="Contoh: Jakarta Selatan / Makassar" required>
                     </div>
 
                     <!-- LINK DRIVE FOTO & CV -->
                     <div class="form-group full-width">
-                        <label for="portfolio">Link Drive Foto & CV / Resume / Portfolio <span class="required">*</span></label>
+                        <label for="portfolio">Link Drive CV / Resume / Portfolio <span class="required">*</span></label>
                         <input type="url" id="portfolio" name="Link_Drive_CV_Portfolio" placeholder="https://drive.google.com/..." required>
-                        <div class="file-hint">Harap sertakan link Google Drive / LinkedIn yang berisi CV dan Foto. Pastikan akses folder/file sudah diatur ke <b>Publik (Anyone with the link)</b>.</div>
+                        <div class="file-hint">Please include a Google Drive/LinkedIn link containing your CV and photos. Ensure folder/file access is set to <b>Public (Anyone with the link)</b>.</div>
                     </div>
 
                     <!-- UPLOAD PASFOTO -->
                     <div class="form-group full-width">
-                        <label for="photo">Upload Pasfoto / Foto Diri Terbaru <span class="required">*</span></label>
-                        <input type="file" id="photo" name="Foto_Pelamar" accept="image/png, image/jpeg, image/jpg" required>
-                        <div class="file-hint">Format yang didukung: JPG, JPEG, PNG (Maksimal 5 MB).</div>
+                        <label for="photo">Upload your latest photo/selfie <span class="required">*</span></label>
+                        <input type="file" id="photo" name="Applicant_Photo" accept="image/png, image/jpeg, image/jpg" required>
+                        <div class="file-hint">Supported formats: JPG, JPEG, PNG (Maximum 5 MB).</div>
                     </div>
 
                     <!-- PENGALAMAN KERJA TERAKHIR -->
                     <div class="form-group full-width">
-                        <label for="last-job">Pengalaman Kerja Terakhir (Perusahaan & Posisi) <span class="required">*</span></label>
-                        <input type="text" id="last-job" name="Pengalaman_Terakhir" placeholder="Contoh: PT ABC - Content Creator (2022-2024)" required>
+                        <label for="last-job">Last Work Experience (Company and Position) <span class="required">*</span></label>
+                        <input type="text" id="last-job" name="Last_Experience" placeholder="Contoh: PT ABC - Content Creator (2022-2024)" required>
                     </div>
 
                     <!-- EKSPEKTASI GAJI -->
                     <div class="form-group">
-                        <label for="salary">Gaji yang Diharapkan (Per Bulan) <span class="required">*</span></label>
-                        <input type="text" id="salary" name="Ekspektasi_Gaji" placeholder="Contoh: Rp 5.000.000" required>
+                        <label for="salary">Expected Salary (Per Month) <span class="required">*</span></label>
+                        <input type="text" id="salary" name="Expected_Salary" placeholder="Contoh: Rp 5.000.000" required>
                     </div>
 
                     <!-- KAPAN BISA MULAI KERJA -->
                     <div class="form-group">
-                        <label for="start-date">Kapan Bisa Mulai Bekerja? <span class="required">*</span></label>
-                        <select id="start-date" name="Ketersediaan_Mulai" required>
-                            <option value="" disabled selected>-- Pilih Waktu --</option>
-                            <option value="Secepatnya / Immediately">Secepatnya / Immediately</option>
-                            <option value="1 Minggu Setelah Offer">1 Minggu</option>
-                            <option value="1 Bulan (1 Month Notice)">1 Bulan (1 Month Notice)</option>
+                        <label for="start-date">When Can I Start Working? <span class="required">*</span></label>
+                        <select id="start-date" name="Availability_Starting" required>
+                            <option value="" disabled selected>-- Select Time --</option>
+                            <option value="As soon as possible / Immediately">As soon as possible / Immediately</option>
+                            <option value="1 Week After Offer">1 Week</option>
+                            <option value="1 Month (1 Month Notice)">1 Month (1 Month Notice)</option>
                         </select>
                     </div>
 
                     <!-- ALASAN TERTARIK -->
                     <div class="form-group full-width">
-                        <label for="motivation">Mengapa Anda Tertarik Bergabung di Posisi Ini? <span class="required">*</span></label>
-                        <textarea id="motivation" name="Alasan_Tertarik" rows="3" placeholder="Tuliskan alasan singkat Anda..." required></textarea>
+                        <label for="motivation">Why Are You Interested in Joining This Position? <span class="required">*</span></label>
+                        <textarea id="motivation" name="Reasons_Interest" rows="3" placeholder="Write your short reasons..." required></textarea>
                     </div>
 
                 </div>
 
-                <button type="submit" style="margin-top: 1rem;">Kirim Lamaran Pekerjaan</button>
+                <button type="submit" style="margin-top: 1rem;">Send job application</button>
             </form>
         </section>
 
     </div>
 
     <footer>
-        <p>&copy; 2026 Tim HRD. Portal Rekrutmen Resmi.</p>
+        <p>&copy; 2026 HR Team. Watch Studio Indonesia's Official Recruitment Portal.</p>
     </footer>
 
     <!-- JAVASCRIPT UNTUK INTERAKSI PILIH LOWONGAN -->
-    <script>
-        // Data Jobdesc untuk masing-masing posisi
-        const jobDetails = {
-            'ecommerce-details': `
-                <p><b>Deskripsi Pekerjaan:</b> Mengelola operasional e-commerce, eksekusi kampanye pemasaran digital, dan optimasi iklan.</p>
+<script>
+    // 1. Job Details Database
+    const jobData = {
+        'marketing-ads': {
+            title: 'MARKETING ADS SPECIALIST',
+            details: `
+                <p><b>Key Responsibilities:</b></p>
                 <ul class="job-detail-list">
-                    <li>Mengelola toko online (Shopify / Marketplace).</li>
-                    <li>Merancang & menjalankan kampanye iklan Meta Ads & Google Ads.</li>
-                    <li>Menganalisis conversion rate, Cost Per Result (CPR), dan data penjualan.</li>
-                </ul>
-            `,
-            'content-details': `
-                <p><b>Deskripsi Pekerjaan:</b> Mengembangkan konten visual kreatif berstandar tinggi untuk kebutuhan promosi produk dan brand.</p>
-                <ul class="job-detail-list">
-                    <li>Memproduksi foto produk studio & outdoor dengan pencahayaan sinematik.</li>
-                    <li>Membuat video pendek (Reels / TikTok) dan materi konten promosi.</li>
-                    <li>Bekerja sama dengan tim marketing untuk ide strategi visual.</li>
-                </ul>
-            `,
-            'hr-details': `
-                <p><b>Deskripsi Pekerjaan:</b> Membantu operasional rekrutmen dan mendukung administrasi kepegawaian internal.</p>
-                <ul class="job-detail-list">
-                    <li>Menyaring berkas pelamar dan mengatur jadwal wawancara.</li>
-                    <li>Mengelola administrasi karyawan dan dokumen operasional HR.</li>
-                    <li>Mendukung penciptaan budaya kerja yang positif dan produktif.</li>
+                    <li>Build campaign ideas for brand or product from concepting, budget allocation, until execution.</li>
+                    <li>Manage, maintain, and analyze all running ads across platforms.</li>
+                    <li>Provide ads results reports weekly and monthly.</li>
+                    <li>Actively involve in brainstorming campaign ideas based on data.</li>
                 </ul>
             `
-        };
-
-        function selectJob(jobTitle, detailKey) {
-            // 1. Tampilkan bagian formulir
-            const appArea = document.getElementById('application-area');
-            appArea.style.display = 'block';
-
-            // 2. Isi nama posisi di judul dan input hidden form
-            document.getElementById('display-job-title').innerText = jobTitle;
-            document.getElementById('input-selected-position').value = jobTitle;
-
-            // 3. Masukkan detail jobdesc yang sesuai
-            document.getElementById('job-details-content').innerHTML = jobDetails[detailKey] || '';
-
-            // 4. Smooth scroll langsung ke bagian formulir
-            appArea.scrollIntoView({ behavior: 'smooth' });
+        },
+        'admin-akunting': {
+            title: 'ADMIN ACCOUNTING',
+            details: `
+                <p><b>Key Responsibilities:</b></p>
+                <ul class="job-detail-list">
+                    <li>Check daily sales across all retail branches.</li>
+                    <li>Export and import data from POS to Accurate accounting software.</li>
+                    <li>Enter and verify payment data into Accurate.</li>
+                </ul>
+            `
         }
+    };
+
+    // 2. Main Function Triggered When Clicking "Select & Apply"
+    function selectJob(jobKey) {
+        const selectedJob = jobData[jobKey];
+        
+        if (!selectedJob) return;
+
+        // Update Job Title & Details in the Application Section
+        document.getElementById('display-job-title').textContent = selectedJob.title;
+        document.getElementById('job-details-content').innerHTML = selectedJob.details;
+        
+        // Populate Hidden Input Field Sent to Web3Forms
+        document.getElementById('input-selected-position').value = selectedJob.title;
+
+        // Reveal the Application Form Section
+        const appArea = document.getElementById('application-area');
+        appArea.style.display = 'block';
+
+        // Smooth Scroll to the Form Section
+        appArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     </script>
 </body>
 </html>
